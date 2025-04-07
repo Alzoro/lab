@@ -40,26 +40,26 @@ def hill_climbing(cities, distances):
     """
     current_solution = generate_random_solution(cities)
     current_length = calculate_route_length(current_solution, distances)
-
+"
     while True:
         neighbours = generate_neighbours(current_solution)
         best_neighbour = None
         best_length = float('inf')
-
+"
         for neighbour in neighbours:
             length = calculate_route_length(neighbour, distances)
             if length < best_length:
                 best_neighbour = neighbour
                 best_length = length
-
+"
         # If no improvement, return the current solution
         if best_length >= current_length:
             break
-
+"
         # Move to the best neighbour
         current_solution = best_neighbour
         current_length = best_length
-
+"
     return current_solution, current_length
 
 # Example usage
@@ -73,7 +73,7 @@ if __name__ == "__main__":
         3: {0: 10, 1: 4, 2: 8, 3: 0, 4: 6},
         4: {0: 7, 1: 3, 2: 5, 3: 6, 4: 0},
     }
-
+"
     # Run the Hill Climbing algorithm
     best_solution, best_length = hill_climbing(cities, distances)
     print("Best solution:", best_solution)
